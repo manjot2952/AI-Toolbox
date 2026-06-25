@@ -1,11 +1,6 @@
 package com.component.backend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "tools")
@@ -13,34 +8,103 @@ public class Tool {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long tool_id;
+    @Column(name = "tool_id")
+    private Long toolId;
 
-    private String tool_name;
+    @Column(name = "tool_name")
+    private String toolName;
 
+    @Column(name = "description")
     private String description;
 
-    private String image_url;
-  
-    public Tool() {
-    }
+    @Column(name = "image_url")
+    private String imageUrl;
 
-    public Tool(String toolName, String description, String image_url) {
-        this.tool_name = toolName;
+    @Column(name = "category_id")
+    private Long categoryId;
+
+    @Column(name = "rating")
+    private Double rating;
+
+    @Column(name = "users")
+    private String users;
+
+    @Column(name = "premium")
+    private Boolean premium;
+
+    public Tool() {}
+
+    public Tool(
+            String toolName,
+            String description,
+            String imageUrl
+    ) {
+        this.toolName = toolName;
         this.description = description;
-        this.image_url = image_url;
+        this.imageUrl = imageUrl;
     }
 
-    // Getters and Setters
-    public Long getToolId() { return tool_id; }
-    public void setToolId(Long tool_id) { this.tool_id = tool_id; }
+    public Long getToolId() {
+        return toolId;
+    }
 
-    public String getToolName() { return tool_name; }
-    public void setToolName(String tool_name) { this.tool_name = tool_name; }
+    public void setToolId(Long toolId) {
+        this.toolId = toolId;
+    }
 
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
+    public String getToolName() {
+        return toolName;
+    }
 
-    public String getImageUrl() { return image_url; }
-    public void setImageUrl(String image_url) { this.image_url = image_url; }
+    public void setToolName(String toolName) {
+        this.toolName = toolName;
+    }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public Long getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public Double getRating() {
+        return rating;
+    }
+
+    public void setRating(Double rating) {
+        this.rating = rating;
+    }
+
+    public String getUsers() {
+        return users;
+    }
+
+    public void setUsers(String users) {
+        this.users = users;
+    }
+
+    public Boolean getPremium() {
+        return premium;
+    }
+
+    public void setPremium(Boolean premium) {
+        this.premium = premium;
+    }
 }

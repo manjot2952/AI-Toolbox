@@ -34,7 +34,8 @@ public class SecurityConfig {
                     "/api/auth/**",
                     "/",
                     "/api/tools",
-                    "/api/categories"
+                    "/api/categories/**",
+                    "/api/categories/**/tools"
                 ).permitAll()
                 .anyRequest()
                 .authenticated()
