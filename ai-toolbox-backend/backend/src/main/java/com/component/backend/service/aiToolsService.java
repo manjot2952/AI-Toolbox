@@ -4,6 +4,7 @@ import com.component.backend.dao.ToolsDao;
 import com.component.backend.dao.CategoryDao;
 import com.component.backend.model.Tool;
 import com.component.backend.model.Category;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,7 +25,7 @@ public class aiToolsService {
         return ToolsDao.findAll();
     }
 
-    public Tool saveTool(Tool tool) {
+    public Tool saveTool(@NonNull Tool tool) {
         return ToolsDao.save(tool);
     }
 
@@ -33,7 +34,7 @@ public class aiToolsService {
         return categoryDao.findAll();
     }
 
-    public Category saveCategory(Category category) {
+    public Category saveCategory(@NonNull Category category) {
         return categoryDao.save(category);
     }
 }
