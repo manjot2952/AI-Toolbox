@@ -21,10 +21,10 @@ import {
 } from "lucide-react";
 
 const menuItem =
-  "flex items-center gap-3 px-4 py-2 rounded-xl transition-all duration-200 text-gray-700 hover:bg-orange-200/60";
+  "flex items-center gap-3 px-4 py-2 rounded-xl transition-all duration-200 ease-smooth text-gray-700 hover:bg-orange-200/60 hover:translate-x-1 focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:outline-none";
 
 const menuItemActive =
-  "flex items-center gap-3 px-4 py-2 rounded-xl bg-orange-400 text-white shadow-md";
+  "flex items-center gap-3 px-4 py-2 rounded-xl bg-orange-400 text-white shadow-md transition-all duration-200";
 
 export default function Sidebar() {
   const { user, logout, isAuthenticated } = useAuth();
@@ -90,7 +90,7 @@ export default function Sidebar() {
 
       <nav className="space-y-2">
         <NavLink
-          to="/writing-tools"
+          to="/category/1"
           className={({ isActive }) =>
             isActive ? menuItemActive : menuItem
           }
@@ -100,7 +100,7 @@ export default function Sidebar() {
         </NavLink>
 
         <NavLink
-          to="/editing-tools"
+          to="/category/2"
           className={({ isActive }) =>
             isActive ? menuItemActive : menuItem
           }
@@ -110,7 +110,7 @@ export default function Sidebar() {
         </NavLink>
 
         <NavLink
-          to="/video-tools"
+          to="/category/3"
           className={({ isActive }) =>
             isActive ? menuItemActive : menuItem
           }
@@ -120,7 +120,7 @@ export default function Sidebar() {
         </NavLink>
 
         <NavLink
-          to="/image-tools"
+          to="/category/4"
           className={({ isActive }) =>
             isActive ? menuItemActive : menuItem
           }
@@ -130,7 +130,7 @@ export default function Sidebar() {
         </NavLink>
 
         <NavLink
-          to="/audio-tools"
+          to="/category/5"
           className={({ isActive }) =>
             isActive ? menuItemActive : menuItem
           }
@@ -140,7 +140,7 @@ export default function Sidebar() {
         </NavLink>
 
         <NavLink
-          to="/code-tools"
+          to="/category/6"
           className={({ isActive }) =>
             isActive ? menuItemActive : menuItem
           }
@@ -150,7 +150,7 @@ export default function Sidebar() {
         </NavLink>
 
         <NavLink
-          to="/analytics"
+          to="/category/7"
           className={({ isActive }) =>
             isActive ? menuItemActive : menuItem
           }
@@ -200,7 +200,7 @@ export default function Sidebar() {
 
             <button
               onClick={logout}
-              className="w-full flex items-center gap-3 px-4 py-2 rounded-xl text-red-600 hover:bg-red-50 transition"
+              className="w-full flex items-center gap-3 px-4 py-2 rounded-xl text-red-600 hover:bg-red-50 active:scale-95 transition-all duration-200 focus-visible:ring-2 focus-visible:ring-red-400 focus-visible:outline-none"
             >
               <LogOut size={18} />
               <span>Logout</span>

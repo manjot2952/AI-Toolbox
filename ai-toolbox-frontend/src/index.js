@@ -20,6 +20,7 @@ import { AuthProvider } from './context/authContext';
 import ProtectedRoute from './components/common/ProtectedRoute';
 import Login from './pages/Login';
 import Register from './pages/Registration';
+import CategoryPage from './pages/CategoryPage';  
 
 const router = createBrowserRouter([
   {
@@ -56,14 +57,18 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
-
-      { path: 'writing-tools', element: <WritingTools /> },
-      { path: 'editing-tools', element: <EditingTools /> },
-      { path: 'video-tools', element: <VideoTools /> },
-      { path: 'image-tools', element: <ImageTools /> },
-      { path: 'audio-tools', element: <AudioTools /> },
-      { path: 'code-tools', element: <CodeTools /> },
-      { path: 'analytics', element: <Analytics /> },
+      
+      {path: "category/:id",
+        element: <CategoryPage />
+      }
+      ,
+      // { path: 'writing-tools', element: <WritingTools /> },
+      // { path: 'editing-tools', element: <EditingTools /> },
+      // { path: 'video-tools', element: <VideoTools /> },
+      // { path: 'image-tools', element: <ImageTools /> },
+      // { path: 'audio-tools', element: <AudioTools /> },
+      // { path: 'code-tools', element: <CodeTools /> },
+      // { path: 'analytics', element: <Analytics /> },
     ],
   },
 
