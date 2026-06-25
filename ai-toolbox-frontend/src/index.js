@@ -16,18 +16,47 @@ import ImageTools from './pages/ImageTools';
 import AudioTools from './pages/AudioTools';
 import CodeTools from './pages/CodeTools';
 import Analytics from './pages/Analytics';
+import { AuthProvider } from './context/authContext';
+import ProtectedRoute from './components/common/ProtectedRoute';
+import Login from './pages/Login';
+import Register from './pages/Registration';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
     children: [
-      { path: '', element: <Home /> },
+      { index: true, element: <Home /> },
+
       { path: 'about', element: <About /> },
       { path: 'contact', element: <Contact /> },
-      { path: 'trending', element: <Trending /> },
-      { path: 'favorites', element: <Favorites /> },
-      { path: 'insights', element: <Insights /> },
+      {
+        path: 'trending',
+        element: (
+          <ProtectedRoute>
+            <Trending />
+          </ProtectedRoute>
+        ),
+      },
+
+      {
+        path: 'favorites',
+        element: (
+          <ProtectedRoute>
+            <Favorites />
+          </ProtectedRoute>
+        ),
+      },
+
+      {
+        path: 'insights',
+        element: (
+          <ProtectedRoute>
+            <Insights />
+          </ProtectedRoute>
+        ),
+      },
+
       { path: 'writing-tools', element: <WritingTools /> },
       { path: 'editing-tools', element: <EditingTools /> },
       { path: 'video-tools', element: <VideoTools /> },
@@ -37,7 +66,24 @@ const router = createBrowserRouter([
       { path: 'analytics', element: <Analytics /> },
     ],
   },
+
+  // Auth Pages (No Layout)
+  {
+    path: '/login',
+    element: <Login />,
+  },
+  {
+    path: '/register',
+    element: <Register />,
+  },
 ]);
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<RouterProvider router={router} />);
+root.render(
+  <React.StrictMode>
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
+  </React.StrictMode>
+);
